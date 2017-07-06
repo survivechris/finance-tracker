@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   # for the my_friend page
   resources :users, only: [:show]
   resources :friendships
+  # for the friend lookup
+  get 'search_friends', to: 'users#search'
+  post 'add_friend', to: 'users#add_friend'
 end
