@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get 'my_friends', to: 'users#my_friends'
   get 'search_stocks', to: 'stocks#search'
   resources :user_stocks, except: [:show, :edit, :update]
+
+  # for the my_friend page
+  resources :users, only: [:show]
+  resources :friendships
 end
