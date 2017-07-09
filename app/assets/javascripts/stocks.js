@@ -5,6 +5,10 @@ init_stock_lookup = function(){
     show_spinner();
   });
 
+  $('#stock-lookup-form').on('ajax:after', function(event, data, status){
+    hide_spinner();
+  });
+
   $('#stock-lookup-form').on('ajax:success', function(event, data, status){
     hide_spinner();
     $('#stock-lookup').replaceWith(data);

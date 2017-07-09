@@ -18,7 +18,6 @@
   <% end %>
 
   <%= render 'common/spinner' %>
-
   <% if @users %>
     <% if @users.size > 0 %>
       <h3>Search Results</h3>
@@ -28,11 +27,11 @@
             <tbody>
               <% @users.each do |user| %>
                 <tr>
-                  <td><strong>Name:</strong><%= @user.full_name %></td>
-                  <td><strong>Email:</strong><%= @user.email %></td>
+                  <td><strong>Name:</strong><%= user.full_name %></td>
+                  <td><strong>Email:</strong><%= user.email %></td>
                   <td><strong>Profile:</strong>
-                    <% link_to 'View Profile', user_path(user), class: 'btn btn-xs btn-success' %>
-                    <% if current_user.not_friend_with?(user) %>
+                    <%= link_to 'View Profile', user_path(user), class: 'btn btn-xs btn-success' %>
+                    <% if current_user.not_friends_with?(user) %>
                       <%= link_to 'Add as my friend', add_friend_path(user: current_user, friend: user), class: 'btn btn-xs btn-success', method: :post%>
                     <% else %>
                       <span class='label label-primary'>You are friend</span>
