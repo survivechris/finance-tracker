@@ -29,4 +29,10 @@ class UsersController < ApplicationController
       redirect_to my_friends_path, flash[:error] = "There was an error when adding this user as friend."
     end
   end
+
+  # to show the user and his/her tracking stocks from profile link
+  def show
+    @user = User.find(params[:id])
+    @user_stocks = @user.user_stocks
+  end
 end
